@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "users": {
+      "title": "Users",
+      "description": "User profiles and security settings",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "balance": { "type": "number" },
+        "safetyScore": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "transactions": {
+      "title": "Transactions",
+      "description": "Payment history and security evaluation logs",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "recipientName": { "type": "string" },
+        "recipientPhone": { "type": "string" },
+        "amount": { "type": "number" },
+        "note": { "type": "string" },
+        "type": { "type": "string" },
+        "status": { "type": "string" },
+        "decision": { "type": "string" },
+        "safetyScore": { "type": "number" },
+        "riskLevel": { "type": "number" },
+        "reasons": { "type": "array", "items": { "type": "string" } },
+        "technicalDetails": { "type": "object" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["userId", "recipientName", "amount", "decision"]
+    },
+    "contacts": {
+      "title": "Contacts",
+      "description": "Saved payment contacts",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "isFavorite": { "type": "boolean" },
+        "isNew": { "type": "boolean" },
+        "avatar": { "type": "string" }
+      },
+      "required": ["userId", "name", "phone"]
+    },
+    "securityAlerts": {
+      "title": "Security Alerts",
+      "description": "Security events and threat logs",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "severity": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "isRead": { "type": "boolean" },
+        "relatedTransactionId": { "type": "string" }
+      },
+      "required": ["userId", "title", "severity"]
+    },
+    "devices": {
+      "title": "Trusted Devices",
+      "description": "Known user devices",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "browser": { "type": "string" },
+        "isCurrent": { "type": "boolean" },
+        "isTrusted": { "type": "boolean" },
+        "lastActive": { "type": "string" }
+      },
+      "required": ["userId", "name"]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Transactions collection
+    match /transactions/{transactionId} {
+      allow read, write: if true;
+    }
+
+    // Contacts collection
+    match /contacts/{contactId} {
+      allow read, write: if true;
+    }
+
+    // Security Alerts collection
+    match /securityAlerts/{alertId} {
+      allow read, write: if true;
+    }
+
+    // Devices collection
+    match /devices/{deviceId} {
+      allow read, write: if true;
+    }
+  }
+}
